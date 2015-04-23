@@ -48,8 +48,10 @@ wolfram-engine
 "
  
 # Remove packages
-for i in $pkgs; do
-	apt-get -y remove --purge $i
+for pkg in $pkgs; do
+	if debInst "$pkg"; then
+	    apt-get -y remove --purge $pkg
+	fi	
 done
 
 
