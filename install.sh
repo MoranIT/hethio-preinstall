@@ -162,6 +162,10 @@ fi
 
 # INSTALL DDCLIENT FOR CLOUDFLARE
 if [ ! -f /usr/sbin/ddclient ]; then
+	wget https://github.com/danielheth/ddclient-for-cloudflare/archive/master.zip
+	unzip master.zip
+	cd ddclient-for-cloudflare-master/
+
 	echo "Installing ddclient for cloudflare"
 	read -p "What zone is this system a part of (domain name listed on cloudflare)? " zone
 	read -p "What is your cloudflare username? " login
@@ -190,6 +194,8 @@ if [ ! -f /usr/sbin/ddclient ]; then
 
 	echo "Starting ddclient"
 	service ddclient Starting
+
+	cd ..
 fi
 
 
