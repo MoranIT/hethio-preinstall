@@ -188,6 +188,8 @@ if [ ! -f /usr/sbin/ddclient ]; then
 	echo "login=$login," >> /etc/ddclient/ddclient.conf
 	echo "password=$password" >> /etc/ddclient/ddclient.conf
 	echo "$fqdn," >> /etc/ddclient/ddclient.conf
+	chown root:root /etc/ddclient/ddclient.conf
+	chmod 600 /etc/ddclient/ddclient.conf
 
 	echo "Adding to Startup"
 	update-rc.d ddclient defaults
